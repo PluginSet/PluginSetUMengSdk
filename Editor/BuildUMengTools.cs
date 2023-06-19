@@ -46,6 +46,23 @@ namespace PluginSetUAPM.Editor
             
             manifest.SetMetaData("UMENG_APPKEY", buildParams.AppKey);
             manifest.SetMetaData("UMENG_CHANNEL", $"Channel_{context.Channel}");
+
+            if (buildParams.IntegrationTesting && !context.ProductMode)
+            {
+                var nodes = manifest.findElements($"{AndroidConst.ACTIVITY_PATH}/intent-filter/action",AndroidConst.NS_PREFIX, "name", "android.intent.action.MAIN");
+                if (nodes.Count <= 0)
+                    return;
+
+                var node = nodes[0].ParentNode?.ParentNode;
+                if (node == null)
+                    return;
+
+                var elem = node.createSubElement("intent-filter");
+                elem.createSubElement("action").SetAttribute("name", AndroidConst.NS_URI, "android.intent.action.VIEW");
+                elem.createSubElement("category").SetAttribute("name", AndroidConst.NS_URI, "android.intent.category.DEFAULT");
+                elem.createSubElement("category").SetAttribute("name", AndroidConst.NS_URI, "android.intent.category.BROWSABLE");
+                elem.createSubElement("data").SetAttribute("scheme", AndroidConst.NS_URI, $"um.{buildParams.AppKey}");
+            }
         }
 
         [BuildCompletedCallback]

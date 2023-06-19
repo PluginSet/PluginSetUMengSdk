@@ -16,6 +16,9 @@ namespace PluginSetUAPM.Editor
 
         [Tooltip("是否启用崩溃数据上报系统")]
         public bool EnableCrashReport;
+        
+        [Tooltip("是否启用集成测试")]
+        public bool IntegrationTesting;
 
         [Tooltip("友盟SDK提供的APPKEY")]
         public string AppKey;
