@@ -5,6 +5,9 @@ using PluginSet.Core;
 
 namespace PluginSetUAPM.Runtime
 {
+#if !UNITY_EDITOR
+    [PluginRegister]
+#endif
     public partial class PluginUMeng: PluginBase, IStartPlugin, IUserSet
     {
         public override string Name => "UAPM";
