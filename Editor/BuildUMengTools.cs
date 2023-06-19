@@ -92,7 +92,7 @@ namespace PluginSetUAPM.Editor
             Global.ExecuteCommand(sevenZip, false, "a", zipFile, savePath);
 
             var tool = Path.Combine(Global.GetPackageFullPath("com.pluginset.umeng"), "Tools", "upload.py");
-            Global.ExecuteCommand("python", Global.GetFullPath(tool), buildParams.ApiKey, buildParams.ApiSecurity, buildParams.AppKey, version, zipFile);
+            Global.ExecuteCommand("python", false, Global.GetFullPath(tool), buildParams.ApiKey, buildParams.ApiSecurity, buildParams.AppKey, version, zipFile);
         }
 
         private static void CopyAndroidUnitySymbols(string targetPath, bool debug)
