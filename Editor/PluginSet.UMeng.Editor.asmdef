@@ -1,0 +1,22 @@
+{
+    "name": "PluginSet.UMeng.Editor",
+    "rootNamespace": "",
+    "references": [
+        "PluginSet.Core",
+        "PluginSet.Core.Editor",
+        "PluginSet.UMeng",
+        "UnityEditor.UI",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
