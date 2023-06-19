@@ -91,7 +91,7 @@ namespace PluginSetUAPM.Editor
             var zipFile = Path.GetFullPath(Path.Combine(context.ProjectPath, $"{buildPrefix}_symbols.zip"));
             Global.ExecuteCommand(sevenZip, false, "a", zipFile, savePath);
 
-            var tool = Path.Combine(Global.GetPackageFullPath("com.pluginset.umeng"), "Editor", "Tools", "upload.py");
+            var tool = Path.Combine(Global.GetPackageFullPath("com.pluginset.umeng"), "Tools", "upload.py");
             Global.ExecuteCommand("python", Global.GetFullPath(tool), buildParams.ApiKey, buildParams.ApiSecurity, buildParams.AppKey, version, zipFile);
         }
 
