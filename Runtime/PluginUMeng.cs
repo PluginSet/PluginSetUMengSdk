@@ -8,17 +8,14 @@ namespace PluginSetUAPM.Runtime
 #if !UNITY_EDITOR
     [PluginRegister]
 #endif
-    public partial class PluginUMeng: PluginBase, IStartPlugin, IUserSet
+    public partial class PluginUMeng: PluginBase, IStartPlugin, IUserSet, IPrivacyAuthorizationCallback
     {
         public override string Name => "UAPM";
         public int StartOrder => PluginsStartOrder.SdkDefault - 1;
         public bool IsRunning { get; private set; }
-        
-        public IEnumerator StartPlugin()
-        {
-            if (IsRunning)
-                yield break;
 
+        private void InitSdk()
+        {
             var pushSecret = "";
             var subVersion = "";
 #if UNITY_ANDROID
@@ -34,6 +31,12 @@ namespace PluginSetUAPM.Runtime
 #if ENABLE_UMENG_CRASH_REPORT
             InitCrash(subVersion);
 #endif
+        }
+        
+        public IEnumerator StartPlugin()
+        {
+            if (IsRunning)
+                yield break;
             IsRunning = true;
         }
 
@@ -45,6 +48,11 @@ namespace PluginSetUAPM.Runtime
                 UMengAndroidApi.OnAppQuit();
 #endif
             }
+        }
+        
+        public void OnPrivacyAuthorization()
+        {
+            InitSdk();
         }
 
         public void SetUserInfo(bool isNewUser, string userId, Dictionary<string, object> pairs = null)
