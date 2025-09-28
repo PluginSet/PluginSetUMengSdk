@@ -2,7 +2,7 @@ using PluginSet.Core;
 using PluginSet.Core.Editor;
 using UnityEngine;
 
-namespace PluginSetUAPM.Editor
+namespace PluginSet.UMeng.Editor
 {
     [BuildChannelsParams("UMeng", "友盟SDK参数")]
     [VisibleCaseBoolValue("SupportAndroid", true)]

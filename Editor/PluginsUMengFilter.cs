@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using PluginSet.Core.Editor;
 using UnityEditor;
 
-namespace PluginSetUAPM.Editor
+namespace PluginSet.UMeng.Editor
 {
     [InitializeOnLoad]
     public static class PluginsUMengFilter

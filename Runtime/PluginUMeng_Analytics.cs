@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using PluginSet.Core;
 using PluginSet.Core.MiniJSON;
 
-namespace PluginSetUAPM.Runtime
+namespace PluginSet.UMeng
 {
     public partial class PluginUMeng: IAnalytics
     {

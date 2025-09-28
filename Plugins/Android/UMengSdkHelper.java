@@ -15,18 +15,36 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class UMengSdkHelper {
+    private static boolean _sdkOaidGet;
+    private static String _sdkOaidValue;
 
-    public static void InitSdk(Context context, boolean debug, String pushSecret)
+    public static void InitSdk(Context context, final boolean debug, String pushSecret)
     {
         UMConfigure.setLogEnabled(debug);
         UMConfigure.init(context, UMConfigure.DEVICE_TYPE_PHONE, pushSecret);
 
+        if (debug) {
+            Log.d("UMengSDK", "init sdk ===================================== ");
+        }
+        
         UMConfigure.getOaid(context, new OnGetOaidListener() {
             @Override
             public void onGetOaid(String s) {
-
+                _sdkOaidGet = true;
+                _sdkOaidValue = s;
+                if (debug) {
+                    Log.d("UMengSDK", "get oaid success, id=" + s);
+                }
             }
         });
+    }
+    
+    public static String GetOaid()
+    {
+        if (_sdkOaidGet) {
+            return _sdkOaidValue;
+        }
+        return "";
     }
 
     public static void OnQuitApp(Context context)

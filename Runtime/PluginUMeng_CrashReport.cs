@@ -2,7 +2,7 @@
 using PluginSet.Core;
 using UnityEngine;
 
-namespace PluginSetUAPM.Runtime
+namespace PluginSet.UMeng
 {
     public partial class PluginUMeng
     {

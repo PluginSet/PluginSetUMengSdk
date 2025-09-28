@@ -2,7 +2,7 @@
 using PluginSet.Core;
 using UnityEngine;
 
-namespace PluginSetUAPM.Runtime
+namespace PluginSet.UMeng
 {
     public class UMengAndroidApi
     {
@@ -45,6 +45,11 @@ namespace PluginSetUAPM.Runtime
                 
                 return _umengAPMApi;
             }
+        }
+
+        public static string GetOaid()
+        {
+            return UMengSdkHelper?.CallStatic<string>("GetOaid");
         }
 
         public static void InitSdk(bool debug, string pushSecret)

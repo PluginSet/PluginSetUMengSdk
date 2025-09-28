@@ -4,7 +4,7 @@ using PluginSet.Core.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace PluginSetUAPM.Editor
+namespace PluginSet.UMeng.Editor
 {
     [BuildTools]
     public static class BuildUMengTools
