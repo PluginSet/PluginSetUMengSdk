@@ -36,9 +36,10 @@ public class UMengSdkPlugin implements IPluginSetApplicationLifecycle {
 
             // 3. 解析 JSON
             JSONObject jsonObject = new JSONObject(jsonString);
+            String channelName = jsonObject.optString("channel", "Channel");
             int channelId = jsonObject.optInt("channelId", -1);
             if (channelId > 0) {
-                channel = "Channel_" + channelId;
+                channel = channelName + "_" + channelId;
             }
         } catch (Exception e) {
             Log.d("UMLog", "Not found channelInfo.json");
