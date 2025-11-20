@@ -5,9 +5,10 @@ FirebaseApp iOS and Android Dependencies.
 
 <dependencies>
   <androidPackages>
-    <androidPackage spec="com.umeng.umsdk:common:9.5.4" />
-    <androidPackage spec="com.umeng.umsdk:asms:1.6.3" />
-    <androidPackage spec="com.umeng.umsdk:apm:1.9.2" />
+    <androidPackage spec="com.umeng.umsdk:common:+" />
+    <androidPackage spec="com.umeng.umsdk:asms:+" />
+    <androidPackage spec="com.umeng.umsdk:apm:+" />
+    <androidPackage spec="com.umeng.umsdk:uyumao:+" />
   </androidPackages>
   <iosPods>
 <!--    <iosPod name="TXLiteAVSDK_TRTC', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_TRTC.podspec">-->
