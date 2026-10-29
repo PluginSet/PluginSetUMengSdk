@@ -40,12 +40,12 @@ def create_client(
 
 def upload_file(file_path: str, upload_address: str, OSSAccessKeyId: str, key:str, policy: str, singature: str, callback: str) -> None:
     """curl --location --request POST 'https://quickbird.oss-cn-shanghai.aliyuncs.com' \
---form 'key="tmp/a469a47579dfcc91017da6069/symbol.so"' \
---form 'policy="eyJleHBpcmF0aW9uIjoiMjAyMS0wNS0yNlQwOTo1MTo1OC44NjBaIiwiY29uZGl0aW9ucyI6W1siZXEiLCIka2V5IiwidG1wLzIwMjEwNTI2LzVmYjYwMDFhNzM3NDljMjRmZDljYjM1Nl83MGNkNDNjYTQ2OWE0NzU3OWRmY2M5MTAxN2RhNjA2OS9zeW1ib2wuc28iXSxbImNvbnRlbnQtbGVuZ3RoLXJ"' \
---form 'OSSAccessKeyId=4bQ2yVkZIuFcikCY' \
+--form 'key="tmp/EXAMPLE_DIR/symbol.so"' \
+--form 'policy="YOUR_OSS_POLICY_BASE64"' \
+--form 'OSSAccessKeyId=YOUR_ACCESS_KEY_ID' \
 --form 'success_action_status=200' \
---form 'callback="eyJjYWxsYmFja1VybCI6Imh0dHBzOi8vYXBtLnVtZW5nLmNvbS9oc2Yvc3ltL29zcy9ub3RpZnlNc2ciLCJjYWxsYmFja0JvZHki"' \
---form 'signature="bP0f+T5OL66G9DjIKtNClphabfs="' \
+--form 'callback="YOUR_CALLBACK_BASE64"' \
+--form 'signature="YOUR_SIGNATURE"' \
 --form 'file="/temp/symbol1.so"'
     """
     cmds = ["curl"]
