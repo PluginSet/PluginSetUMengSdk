@@ -27,16 +27,22 @@ public class UMengSdkHelper {
             Log.d("UMengSDK", "init sdk ===================================== ");
         }
         
-        UMConfigure.getOaid(context, new OnGetOaidListener() {
-            @Override
-            public void onGetOaid(String s) {
-                _sdkOaidGet = true;
-                _sdkOaidValue = s;
-                if (debug) {
-                    Log.d("UMengSDK", "get oaid success, id=" + s);
+        try {
+            UMConfigure.getOaid(context, new OnGetOaidListener() {
+                @Override
+                public void onGetOaid(String s) {
+                    _sdkOaidGet = true;
+                    _sdkOaidValue = s;
+                    if (debug) {
+                        Log.d("UMengSDK", "get oaid success, id=" + s);
+                    }
                 }
-            }
-        });
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            _sdkOaidGet = true;
+            _sdkOaidValue = "";
+        }
     }
     
     public static String GetOaid()
